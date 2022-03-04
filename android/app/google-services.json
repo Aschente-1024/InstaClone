@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "518216424326",
+    "firebase_url": "https://flutter-firebase-auth-te-b1393.firebaseio.com",
+    "project_id": "flutter-firebase-auth-te-b1393",
+    "storage_bucket": "flutter-firebase-auth-te-b1393.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518216424326:android:ac4b97d746137c6a9baa07",
+        "android_client_info": {
+          "package_name": "com.blank.firebase_auth_test"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518216424326-o2du67284jo98bpq9ajeb0ksmtm7g92a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANTOzGeyx-uRRKPKCgcmJbYyMSofRUuek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518216424326-o2du67284jo98bpq9ajeb0ksmtm7g92a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518216424326:android:8326a1bd617ce4e49baa07",
+        "android_client_info": {
+          "package_name": "com.example.insta_clone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518216424326-o2du67284jo98bpq9ajeb0ksmtm7g92a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANTOzGeyx-uRRKPKCgcmJbYyMSofRUuek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518216424326-o2du67284jo98bpq9ajeb0ksmtm7g92a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:518216424326:android:4ac4282dafd0ec139baa07",
+        "android_client_info": {
+          "package_name": "net.codex.calenderapi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "518216424326-o2du67284jo98bpq9ajeb0ksmtm7g92a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANTOzGeyx-uRRKPKCgcmJbYyMSofRUuek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "518216424326-o2du67284jo98bpq9ajeb0ksmtm7g92a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
