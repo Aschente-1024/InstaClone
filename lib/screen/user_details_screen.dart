@@ -4,9 +4,11 @@ import 'dart:io';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:insta_clone/providers/user_provider.dart';
+import 'package:insta_clone/utils/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
-
+import 'package:provider/provider.dart';
 import 'package:insta_clone/utils/text_input_util.dart';
 
 class UserDetailScreen extends StatelessWidget {
@@ -45,7 +47,6 @@ class _DetailFormState extends State<DetailForm> {
 
   final _formKey = GlobalKey<FormState>();
 
-  final ImagePicker _imagePicker = ImagePicker();
   File? image;
 
   final DateRangePickerController datePick = DateRangePickerController();
@@ -99,11 +100,10 @@ class _DetailFormState extends State<DetailForm> {
           ),
           GestureDetector(
             onTap: () async {
-              XFile? pickedFile =
-                  await _imagePicker.pickImage(source: ImageSource.gallery);
+              String? pickedFile = await pickImage(ImageSource.gallery);
               if (pickedFile != null) {
                 setState(() {
-                  image = File(pickedFile.path);
+                  image = File(pickedFile);
                 });
               }
             },
@@ -165,6 +165,15 @@ class _DetailFormState extends State<DetailForm> {
               //   context.read<UserProvider>().loginUser(
               //       emailController.value.text, passwordController.value.text);
               // }
+              context.read<UserProvider>().updateUserOnFirestore(
+                    firstName: firstName.text,
+                    lastName: lastName.text,
+                    userName: userName.text,
+                    bio: bio.text,
+                    dateOfBirth: _selectedDate,
+                  );
+              print(_selectedDate);
+              print(context.read<UserProvider>().getCurrentUser);
             },
             child: const Text('Save'),
           ),

@@ -92,7 +92,7 @@ class _SignupFormState extends State<SignupForm> {
               if (_formKey.currentState!.validate()) {
                 context.read<UserProvider>().createNewUser(
                     emailController.text, passwordController.text);
-                Navigator.pushReplacementNamed(context, '/');
+                Navigator.pushReplacementNamed(context, '/user_details');
               }
             },
             child: const Text('Sign up'),

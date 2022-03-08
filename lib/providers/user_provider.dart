@@ -25,18 +25,10 @@ class UserProvider with ChangeNotifier {
     try {
       UserCredential _cred = await _firebaseAuth.createUserWithEmailAndPassword(
           email: email, password: password);
-      log('user created---  ${_cred.toString()}');
 
-      _firebaseFirestore.collection('users').doc(_cred.user!.uid).set({
-        'uid': _cred.user!.uid,
-        'username': _cred.user!.displayName,
-        'email': email,
-        'bio': '',
-        'last_upload': '',
-        'photo_url': '',
-        'following': [],
-        'follower': []
-      });
+      addUserOnFirestore(_cred.user!.uid, email);
+
+      log('user created---  ${_cred.toString()}');
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
         log('weak password');
@@ -80,5 +72,44 @@ class UserProvider with ChangeNotifier {
       log('$e');
     }
     notifyListeners();
+  }
+
+  addUserOnFirestore(
+    String uid,
+    String email,
+  ) async {
+    try {
+      await _firebaseFirestore.collection('users').doc(uid).set({
+        'uid': uid,
+        'email': email,
+        'photo_url': '',
+        'following': [],
+        'follower': []
+      });
+    } catch (e) {
+      print('error adding user tp firestore db $e');
+    }
+  }
+
+  updateUserOnFirestore({
+    required String firstName,
+    required String lastName,
+    required String bio,
+    required String userName,
+    required String dateOfBirth,
+  }) async {
+    try {
+      String uid = _firebaseAuth.currentUser!.uid;
+      await _firebaseFirestore.collection('users').doc(uid).update({
+        'firstName': firstName,
+        'lastName': lastName,
+        'userName': userName,
+        'bio': bio,
+        'photo_url': '',
+        'dateOfBirthday': dateOfBirth, //dob here
+      });
+    } catch (e) {
+      print('error updating user to firestore db $e');
+    }
   }
 }
